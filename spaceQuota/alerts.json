@@ -1,0 +1,45 @@
+{
+  "AlertDefinition" : 
+  	  {
+  	  	"service_name" : "HDFS", 
+  	  	"component_name" : "NAMENODE",
+  	  	"name": "hdfs_quota",
+        "label": "HDFS QUOTA",
+        "description": "This alert is triggered if quota capacity is reach. It checks the cpacity using WebHDFS. The threshold values are in percent.",
+        "interval": 1,
+        "scope": "SERVICE",
+        "enabled": true,
+        "source": {
+          "type": "SCRIPT",
+          "path": "spaceQuota.py",
+          "parameters" : [
+            {
+              "name": "location.quota",
+              "display_name": "Path to monitor",
+              "value": "/application/digital",
+              "type": "STRING",
+              "description": "Folder to monitor for QUOTA"
+            },
+            {
+              "name": "quota.warning.threshold",
+              "display_name": "Quota Warning",
+              "value": 70,
+              "type": "PERCENT",
+              "units": "%",
+              "description": "This alert is trigered if space quota is 70% of limit",
+              "threshold": "WARNING"
+            },
+            {
+              "name": "quota.critical.threshold",
+              "display_name": "Quota Warning",
+              "value": 90,
+              "type": "PERCENT",
+              "units": "%",
+              "description": "This alert is trigered if space quota is 90% of limit",
+              "threshold": "CRITICAL"
+            }
+          ]
+        }
+      }
+  
+}
