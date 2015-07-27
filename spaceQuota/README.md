@@ -8,4 +8,4 @@ You need to modify the value of location.quota in the parameter section to match
               "display_name": "Path to monitor",
               "value": "/application/digital",
 ```
-If you want to change the threshold, modify the value of quota.warning.threshold and quota.critical.threshold.
+Similarly if you want to change the threshold, modify the value for **quota.warning.threshold** and **quota.critical.threshold**.
